@@ -10,4 +10,5 @@ RewriteRule (.+) public/$1 [L]
 
 # Route all other requests
 RewriteRule (.*) public/index.php?route=$1 [L,QSA]
+
 </IfModule>

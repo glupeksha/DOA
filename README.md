@@ -1,3 +1,6 @@
+# Setting up the project
+
+
 ### .htaccess
 .htaccess defines the entry point of the application.
 

@@ -18,7 +18,7 @@ class Log {
 	 */
 	static public function getLogger()
 	{
-		var_dump($instance);
+		
 		if (! self::$instance) {
 			self::configureInstance();
 		}
@@ -33,40 +33,35 @@ class Log {
 	 */
 	protected static function configureInstance()
 	{
-		$dir='../storage/logs/app_logger.log';
-		var_dump($dir);
-		if (!file_exists($dir)){
-			mkdir($dir, 0777, true);
-		}
+		$dir=APP_ROOT.'/storage/logs/app_logger.log';
 
 		// Create the logger
         $logger = new Logger('app_logger');
         $logger->pushHandler(new StreamHandler($dir, Level::Debug));
-        $logger->info('My logger is now ready');
+        $logger->debug('Started logging at '.$dir,['file'=>__FILE__,'method' => __METHOD__ ]);
 
 		
 		self::$instance = $logger;
 	}
 
 	public static function debug($message, array $context = []){
-		self::getLogger()->addDebug($message, $context);
+		self::getLogger()->debug($message, $context);
 	}
 
 	public static function info($message, array $context = []){
-		self::getLogger()->addInfo($message, $context);
+		self::getLogger()->info($message, $context);
 	}
 
 	public static function notice($message, array $context = []){
-		self::getLogger()->addNotice($message, $context);
+		self::getLogger()->notice($message, $context);
 	}
 
 	public static function warning($message, array $context = []){
-		self::getLogger()->addWarning($message, $context);
+		self::getLogger()->warning($message, $context);
 	}
 
 	public static function error($message, array $context = []){
-		var_dump($error);
-		self::getLogger()->addError($message, $context);
+		self::getLogger()->error($message, $context);
 	}
 
 	public static function critical($message, array $context = []){
@@ -74,11 +69,11 @@ class Log {
 	}
 
 	public static function alert($message, array $context = []){
-		self::getLogger()->addAlert($message, $context);
+		self::getLogger()->alert($message, $context);
 	}
 
 	public static function emergency($message, array $context = []){
-		self::getLogger()->addEmergency($message, $context);
+		self::getLogger()->emergency($message, $context);
 	}
 
 }
