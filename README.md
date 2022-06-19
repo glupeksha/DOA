@@ -7,6 +7,12 @@ Create database tables for users, services, user_services, inquiries.
 
 Install composer.
 
+
+## Explaination
+
+This project followed the basic structure explained in here https://www.giuseppemaccario.com/how-to-build-a-simple-php-mvc-framework/
+
+
 ### .htaccess
 .htaccess defines the entry point of the application.
 
