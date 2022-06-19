@@ -1,5 +1,11 @@
 # Setting up the project
+Clone the project to the apache server.
 
+Edit .htaccess file in the Document Root Directory to point towards project directory.
+
+Create database tables for users, services, user_services, inquiries.
+
+Install composer.
 
 ### .htaccess
 .htaccess defines the entry point of the application.
